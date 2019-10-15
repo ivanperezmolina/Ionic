@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Entrada de datos con input</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-input placeholder="Enter Input" [(ngModel)]="word"></ion-input>
+
+    <ion-button (click)="reset()">Borrar</ion-button>
+
+    <h2>{{ word | uppercase }}</h2>
+</ion-content>

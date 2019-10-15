@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Eventos (click)</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="testButton()">Probando botón</ion-button>
+<ion-item-divider></ion-item-divider>
+
+  <ion-button (click)="generateValue()">Genera valor</ion-button>
+
+  <ion-button (click)="incValue(1)">
+    <ion-icon name="add-circle"></ion-icon>
+  </ion-button>
+  <ion-button (click)="incValue(10)">
+    <ion-icon name="add-circle"></ion-icon>10
+  </ion-button>
+  <ion-button (click)="incValue(-1)">
+    <ion-icon name="remove-circle"></ion-icon>
+  </ion-button>
+  <ion-button (click)="incValue(-10)">
+    <ion-icon name="remove-circle"></ion-icon>10
+  </ion-button>
+  <h1>{{ n }}</h1>
+</ion-content>

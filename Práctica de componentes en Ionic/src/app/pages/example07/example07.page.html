@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Directiva *ngFor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <table border="1px">
+    <tr>
+      <th>Nombre</th>
+      <th>Puesto</th>
+      <th>Salario</th>
+    </tr>
+
+    <tr *ngFor="let e of empleados">
+      <td> {{e.name}}</td>
+      <td>{{e.job}}</td>
+      <td>{{e.salary}}</td>
+    </tr>
+
+  </table>
+
+  
+
+  <ion-input placeholder="Nombre" [(ngModel)]="nameInput" type="text"> </ion-input>
+  <ion-input placeholder="Puesto" [(ngModel)]="jobInput" type="text"> </ion-input>
+  <ion-input placeholder="Salario" [(ngModel)]="salaryInput" type="number"> </ion-input>
+
+  <ion-button expand="full" (click)="anadir()" >+</ion-button>
+</ion-content>

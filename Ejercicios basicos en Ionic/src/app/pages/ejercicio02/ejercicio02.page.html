@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ejercicio02</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--Este botón llamara al ts y nos dara la cadena-->
+  <ion-button (click)="mostrarCadena()" expand="full">Mostrar nombre</ion-button>
+
+  <!--Este botón borra la cadena-->
+  <ion-button (click)="borraCadena()" expand="full">Borrar nombre</ion-button>
+
+  <!--Muestro la cadena-->
+  <h3 style="text-align: center">{{cadena}}</h3>
+</ion-content>

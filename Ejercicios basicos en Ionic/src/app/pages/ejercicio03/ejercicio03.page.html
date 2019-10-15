@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ejercicio03</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-button (click)="incValue(1)">
+    <ion-icon name="add-circle"></ion-icon>
+  </ion-button>
+
+  <div style="float: right">
+  <ion-button (click)="incValue(-1)">
+    <ion-icon name="remove-circle"></ion-icon>
+  </ion-button>
+  </div>
+  <h1 style="font-size: 150px; text-align: center">{{n}}</h1>
+
+  <ion-button (click)="resetea()" expand="full">Reset</ion-button>
+</ion-content>

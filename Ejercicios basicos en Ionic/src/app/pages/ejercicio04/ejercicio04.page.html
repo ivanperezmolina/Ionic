@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ejercicio04</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-input placeholder="Enter name" [(ngModel)]="nombre"></ion-input>
+
+    <ion-button (click)="saluda()" expand="full">Saludar</ion-button>
+
+    <h1 text-center>{{saludo}}</h1>
+</ion-content>

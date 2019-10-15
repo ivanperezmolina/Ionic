@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Directiva *ngFor y ngModel</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <!--Visualizo los arrays-->
+ <h4><b>Numeros: </b>
+ <span *ngFor="let n of numbers">
+   {{ n }}
+ </span>
+ </h4>
+
+ <ion-input placeholder="Enter Input" [(ngModel)]="numero" type="number"> </ion-input>
+
+ <ion-button expand="full" (click)="anadir(numero)" (click)="reset()">+</ion-button>
+
+ <h4><strong>Fruta:</strong> 
+ <span *ngFor="let f of fruits">
+   {{ f }}
+ </span>
+  </h4>
+
+  <ion-input placeholder="Enter Input" [(ngModel)]="fruta" type="text"></ion-input>
+
+  <ion-button expand="full" (click)="anadirFruta(fruta)">+</ion-button>
+</ion-content>

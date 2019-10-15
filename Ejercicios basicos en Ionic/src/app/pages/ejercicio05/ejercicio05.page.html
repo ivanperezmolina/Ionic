@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ejercicio05</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Valor mínimo</ion-label>
+    <ion-input [(ngModel)]="min"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Valor máximo</ion-label>
+    <ion-input [(ngModel)]="max"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="generateValue(min,max)">Genera valor</ion-button>
+
+  <h1>{{numero}}</h1>
+</ion-content>

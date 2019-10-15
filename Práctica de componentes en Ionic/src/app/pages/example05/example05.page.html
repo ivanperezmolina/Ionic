@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Directiva estructural</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--Visualizo los arrays-->
+  <h4>Numeros: </h4>
+
+  <p *ngFor="let n of numbers">
+    {{ n }}
+  </p>
+
+
+  <h4>Frutas: </h4>
+
+  <p *ngFor="let f of fruits">
+    {{ f }}
+  </p>
+</ion-content>
