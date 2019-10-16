@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Task } from '../model/task';
+import { Task } from '../model/task'; 
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -9,22 +10,10 @@ export class TaskService {
   //Array de tareas
   tasks: Task[]=[]; //Inicializar vacio
 
-  constructor() {
-    this.tasks= [
-      {
-        id:0,
-        title:"Dar estrella al repositorio",
-        description:"Apoyar al repositorio de Iván para seguir creciendo"
-      },
-
-      {
-        id:1,
-        title:"Estudiar Ionic",
-        description:"Familiarizarse con el entorno y con el lenguaje "
-      },
-
-    ];
-
+  constructor(private storage:Storage) {//inyecto de BBDD
+    this.storage.get('tasks').then(
+      data => this.tasks = data !==null ? data:[]
+    );//Promesa
 
     }
         //getter para devolver tareas
@@ -32,7 +21,23 @@ export class TaskService {
           return this.tasks;
         }
 
-        saveTask(t: Task){
+        //getter para si paso un id; me de solo la tarea que yo quiero
+        //Cojo de la url y los pondre en el formulario
+        getTask(id: number):Task{
+          return this.tasks.filter(t => t.id==id)[0];//Para devlver una tarea hago un array con una posición
+        }
+
+        saveTask(t: Task){//distingo si edito o si creo una tarea
+          if (t.id == undefined){
+            this.addTask(t);
+          }else{
+            this.updateTask(t);
+          }
+
+          this.storage.set('tasks',this.tasks)//guardo en la memoria
+        }
+
+        addTask(t: Task){
           let id=0;
           //Comprobar
           if(this.tasks.length>0){
@@ -43,6 +48,12 @@ export class TaskService {
           const taskToSave = {id: id, title:t.title, description: t.description}
           //////
           this.tasks.push(taskToSave);
+        }
+
+        updateTask(t){
+          const index = this.tasks.findIndex(tAux => tAux.id ==t.id);
+          this.tasks[index].title=t.title;
+          this.tasks[index].description=t.description;          
         }
 
         deleleTask(id:number){
