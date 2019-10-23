@@ -1,9 +1,42 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>movie-details</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles de "{{item?.Title}}"</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding >
+  <ion-card *ngIf="item"> 
+    <ion-card-header>
+      <ion-card-title>{{item.Title}}</ion-card-title>
+      <ion-card-subtitle>{{item.Year}}</ion-card-subtitle>
+    </ion-card-header>
 
+    <ion-card-content text-center>
+      <img [src]="item.Poster" class="info-img">
+      <p>{{item.Plot}}</p>
+
+      <ion-item lines="none">
+        <ion-icon name="star-half" slot="start"></ion-icon>
+        <ion-label>{{item.imdbRating}}</ion-label>
+
+      </ion-item>
+
+      <ion-item lines="none">
+          <ion-icon name="clipboard" slot="start"></ion-icon>
+          <ion-label>{{item.Director}}</ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+          <ion-icon name="contact" slot="start"></ion-icon>
+          <ion-label text-wrap>{{item.Actors}}</ion-label>
+      </ion-item>
+
+      <ion-button expand="block" (click)="openWebsite()" *ngIf="item.Website && item.Website != 'N/A'">
+      +info
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

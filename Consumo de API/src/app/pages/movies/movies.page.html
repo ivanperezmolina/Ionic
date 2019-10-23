@@ -5,5 +5,44 @@
 </ion-header>
 
 <ion-content>
-{{results | async|json}}
+    <!--Cuadro de busqueda-->
+    <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged()" debounce="1000"></ion-searchbar>
+
+    <!--Seleccion para el tipo-->
+    <ion-item>
+        <ion-label>Selecciona el tipo</ion-label>
+        <ion-select [(ngModel)]="type" (ionChange)="searchChanged()">
+          <ion-select-option value="">Todo</ion-select-option>
+          <ion-select-option value="movie">Películas</ion-select-option>
+          <ion-select-option value="series">Series</ion-select-option>
+          <ion-select-option value="episode">Episodio</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    <!--Mostrar resultados-->
+    <!--[routerLink]="[se parte de raiz / resto de la ruta / parametros]"-> Compone la url
+    para ir a otra página con esa url-->
+
+    <ion-list>
+      <ion-item 
+      button 
+      *ngFor="let item of (results | async )"
+      [routerLink]="['/', 'movie',item.imdbID]"
+      >
+        <ion-avatar slot="start">
+          <img [src]="item.Poster" *ngIf="item.Poster != 'N/A'">
+        </ion-avatar>
+
+        <ion-label text-wrap>
+          <h3>{{item.Title}}</h3>
+          {{item.Year}}
+        </ion-label>
+
+        <ion-icon slot="end" *ngIf="item.Type=='movie'" name="videocam"></ion-icon>
+        <ion-icon slot="end" *ngIf="item.Type=='series'" name="tv"></ion-icon>
+        <ion-icon slot="end" *ngIf="item.Type=='game'" name="logo-game-controller-b"></ion-icon>
+      </ion-item>
+    </ion-list>
+
+
 </ion-content>

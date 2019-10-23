@@ -20,8 +20,8 @@ export class MoviesPage implements OnInit {
   }
 
   searchChanged(){
-    //this.results = this.movieService.searchByTitle(this.searchTerm, this.type);
-    this.results = this.movieService.searchByTitle("matrix", SearchType.all);
+    this.results = this.movieService.searchByTitle(this.searchTerm, this.type);
+    //this.results = this.movieService.searchByTitle("matrix", SearchType.all);
   }
 
 }

@@ -6,7 +6,7 @@ import {map} from 'rxjs/operators';
 export enum SearchType{
   all='',
   movie = 'movie',
-  serie = 'serie',
+  serie = 'series',
   episode = 'episode'
 }
 @Injectable({
@@ -25,6 +25,8 @@ export class MovieService {
     //Hacemos la llamada
     return this.http.get(`${this.url}?apiKey=${this.apiKey}&s=${encodeURI(title)}&type=${type}`
     ).pipe(map(data => data ['Search']));
+    //Pipe nos sirva para seleccion de datos, como una especie de flitro
+    //Map nos coge un elemento y lo transforma
   }
 
   //METODO DETALLES PELICULA
