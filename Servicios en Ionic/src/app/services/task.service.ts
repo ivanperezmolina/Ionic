@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../model/task'; 
 import { Storage } from '@ionic/storage';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +12,15 @@ export class TaskService {
   tasks: Task[]=[]; //Inicializar vacio
 
   constructor(private storage:Storage) {//inyecto de BBDD
-    this.storage.get('tasks').then(
+    this.getTasks().then(
       data => this.tasks = data !==null ? data:[]
     );//Promesa
-
     }
+
+
         //getter para devolver tareas
-        getTasks():Task[]{
-          return this.tasks;
+        getTasks():Promise<Task[]>{
+          return this.storage.get('tasks');
         }
 
         //getter para si paso un id; me de solo la tarea que yo quiero
@@ -27,14 +29,15 @@ export class TaskService {
           return this.tasks.filter(t => t.id==id)[0];//Para devlver una tarea hago un array con una posición
         }
 
-        saveTask(t: Task){//distingo si edito o si creo una tarea
+        saveTask(t: Task): Promise<boolean>{//distingo si edito o si creo una tarea
+                           //Devuelvo la promesa para ver si se ha guardado
           if (t.id == undefined){
             this.addTask(t);
           }else{
             this.updateTask(t);
           }
 
-          this.storage.set('tasks',this.tasks)//guardo en la memoria
+         return this.storage.set('tasks',this.tasks)//guardo en la memoria
         }
 
         addTask(t: Task){
@@ -56,9 +59,11 @@ export class TaskService {
           this.tasks[index].description=t.description;          
         }
 
-        deleleTask(id:number){
+        deleleTask(id:number):Promise<boolean>{
           this.tasks = this.tasks.filter(t => t.id !=id);
           //Se hace ul filtrado y del resultado, machacamos el array original
+          return this.storage.set('tasks',this.tasks);
+          //Comprobar que se guarda
         }
    }
 

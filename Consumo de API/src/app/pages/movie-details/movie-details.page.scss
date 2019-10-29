@@ -1,3 +1,8 @@
 .info-img{
     padding: 10px;
+    object-fit: contain;
+}
+
+.toolbar-title{
+    text-overflow: inherit !important;
 }

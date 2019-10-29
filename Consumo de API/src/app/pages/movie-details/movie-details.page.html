@@ -15,7 +15,7 @@
     </ion-card-header>
 
     <ion-card-content text-center>
-      <img [src]="item.Poster" class="info-img">
+      <img *ngIf="item.Poster && item.Poster != 'N/A'" [src]="item.Poster" class="info-img">
       <p>{{item.Plot}}</p>
 
       <ion-item lines="none">
