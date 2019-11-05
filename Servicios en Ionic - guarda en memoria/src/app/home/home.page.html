@@ -18,8 +18,11 @@
     <ion-list lines="full">
       <ion-item *ngFor="let t of tasks">
         <ion-label>{{t.title}}</ion-label>
+        
         <ion-icon (click)="goToEditTask(t.id)" name="create"></ion-icon> 
+
         <!--Añadir espacio--><ion-icon name="blank"></ion-icon>
+
         <ion-icon  (click)="presentAlertConfirm(t.id, t.title)" name="trash"></ion-icon>
       </ion-item>
     </ion-list>

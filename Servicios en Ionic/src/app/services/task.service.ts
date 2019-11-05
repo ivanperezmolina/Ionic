@@ -48,7 +48,7 @@ export class TaskService {
           }
           //ID
           
-          const taskToSave = {id: id, title:t.title, description: t.description}
+          const taskToSave = {id: id, title:t.title, description: t.description,categoria:t.categoria}
           //////
           this.tasks.push(taskToSave);
         }
@@ -56,7 +56,8 @@ export class TaskService {
         updateTask(t){
           const index = this.tasks.findIndex(tAux => tAux.id ==t.id);
           this.tasks[index].title=t.title;
-          this.tasks[index].description=t.description;          
+          this.tasks[index].description=t.description;    
+          this.tasks[index].categoria=t.categoria;   
         }
 
         deleleTask(id:number):Promise<boolean>{

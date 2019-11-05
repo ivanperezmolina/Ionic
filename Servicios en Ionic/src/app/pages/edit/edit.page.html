@@ -19,6 +19,16 @@
         <ion-label position="floating">Descripción</ion-label>
         <ion-input clearInput [(ngModel)]="task.description"></ion-input>
       </ion-item>
+
+      <ion-item>
+        <ion-label>Categoría</ion-label>
+        <ion-select placeholder="Seleccione uno" [(ngModel)]="task.categoria">
+          <ion-select-option value="personal">Personal</ion-select-option>
+          <ion-select-option value="trabajo">Trabajo</ion-select-option>
+          <ion-select-option value="estudios">Estudios</ion-select-option>
+        </ion-select>
+      </ion-item>
+
       <hr>
       <ion-button expand="full" (click)="saveTask()">
         Guardar

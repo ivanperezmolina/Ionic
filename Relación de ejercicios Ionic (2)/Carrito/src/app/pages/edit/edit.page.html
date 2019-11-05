@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Añadir nuevo producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Nombre producto</ion-label>
+      <ion-input clearInput [(ngModel)]="carrito.item"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Precio unitario</ion-label>
+      <ion-input clearInput [(ngModel)]="carrito.price"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Cantidad</ion-label>
+      <ion-input clearInput [(ngModel)]="carrito.quantity"></ion-input>
+    </ion-item>
+
+    <hr>
+    <ion-button expand="full" (click)="saveElemento()">
+      Guardar
+    </ion-button>
+  </div>
+</ion-content>

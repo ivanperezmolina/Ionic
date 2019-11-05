@@ -21,6 +21,13 @@
         <ion-icon (click)="goToEditTask(t.id)" name="create"></ion-icon> 
         <!--Añadir espacio--><ion-icon name="blank"></ion-icon>
         <ion-icon  (click)="presentAlertConfirm(t.id, t.title)" name="trash"></ion-icon>
+
+        <ion-icon slot="end" *ngIf="t.categoria=='personal'" name="person"></ion-icon>
+        <ion-icon slot="end" *ngIf="t.categoria=='trabajo'" name="briefcase"></ion-icon>
+        <ion-icon slot="end" *ngIf="t.categoria=='estudios'" name="bookmarks"></ion-icon>
+        <ion-icon slot="end" *ngIf="t.categoria==''" name="alert"></ion-icon>
+
+
       </ion-item>
     </ion-list>
 

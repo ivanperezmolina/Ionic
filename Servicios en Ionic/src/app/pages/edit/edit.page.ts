@@ -13,7 +13,8 @@ export class EditPage implements OnInit {
   task: Task={
     //id no esta, pero a mi no me interesa. Lo pongo opcional en task.ts(clase)
     title:"",
-    description:""
+    description:"",
+    categoria:""
   };
 
 
