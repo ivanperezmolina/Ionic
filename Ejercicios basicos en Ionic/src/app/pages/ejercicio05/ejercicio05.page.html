@@ -18,7 +18,7 @@
     <ion-input [(ngModel)]="max"></ion-input>
   </ion-item>
 
-  <ion-button (click)="generateValue(min,max)">Genera valor</ion-button>
+  <ion-button [disabled]="min>=max" (click)="generateValue(min,max)">Genera valor</ion-button>
 
   <h1>{{numero}}</h1>
 </ion-content>

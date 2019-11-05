@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      El afortunado/a del día es...
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-button expand="full" (click)="randomStudent()"> 
+        <ion-icon name="color-wand"></ion-icon>
+      Elige un alumno/a al azar
+      <ion-icon name="color-wand"></ion-icon>
+    </ion-button>
+
+    <img *ngIf="image" [src]="image">
+    <h1 text-center> {{ name }}</h1>
+  </div>
+</ion-content>

@@ -14,17 +14,17 @@ export class HomePage {
 
   constructor() {}
 
-  conversorMetros(metros){
+  conversorMetros(){
     this.centimetros=this.metros*100;
     this.pulgadas=this.metros*39.37;
   }
 
-  conversorCentimetros(centimetros){
+  conversorCentimetros(){
     this.metros=this.centimetros/100;
     this.pulgadas=this.centimetros/2.54;
   }
 
-  conversorPulgadas(pulgadas){
+  conversorPulgadas(){
     this.metros=this.pulgadas*(0.0254);
     this.centimetros=this.pulgadas*2.54;
   }
