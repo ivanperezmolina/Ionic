@@ -1,14 +1,29 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Peliculas
     </ion-title>
   </ion-toolbar>
+  
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+
+        <ion-card *ngFor='let p of peliculas'>
+            
+            <ion-card-header block (click)="accion1(p.title)">
+                <img src="../assets/img/{{p.cover}}" >
+              <ion-card-title>{{p.title}}</ion-card-title>              
+            </ion-card-header>            
+            <ion-card-content *ngIf="ocultar1" >
+              <h2>Fecha: {{p.release}}</h2><br>
+              <h2>Nota: {{p.score}}</h2><br>
+              Sinopsis: {{p.synopsis}}
+              <!--Añadir espacio--><ion-icon name="blank"></ion-icon>
+              <ion-button  (click)="presentAlertConfirm(p.title)"><ion-icon name="trash"></ion-icon></ion-button>
+            </ion-card-content>
+          </ion-card>
+          
   </div>
 </ion-content>
