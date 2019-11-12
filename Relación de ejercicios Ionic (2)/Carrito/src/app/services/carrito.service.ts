@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Carrito } from '../model/carrito';
+import { Observable } from 'rxjs';
+//import { HttpClient } from '@angular/common/http';
+
+
 
 
 @Injectable({
@@ -11,9 +15,7 @@ export class CarritoService {
   carrito: Carrito[] = [];
 
 
-
-
-  constructor() {
+  constructor() { //inyectar el hhtp
     this.carrito = [
       {
         item: 'Teclado Logitech',
@@ -37,7 +39,17 @@ export class CarritoService {
       },
     ];
 
+
+    //this.getJson('carrito.json).subscribe(
+    //  data=> this.carrito = data
+    // );
   }
+
+  //Para coger del .json 
+
+  //getJson (file:string):Observable<Carrito[]>{
+   // return this.http.get<Carrito[]>('../model/'+file);
+  //}
 
 
   //getter para devolver elementos del carrito
@@ -47,7 +59,6 @@ export class CarritoService {
 
   addElemento(e:Carrito){
     const elementosAGuardar = {item:e.item, price:e.price,quantity:e.quantity}
-
     this.carrito.push(elementosAGuardar);
   }
 }

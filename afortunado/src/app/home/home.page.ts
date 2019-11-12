@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { STUDENTS } from '../model/students';
+import { Student } from '../model/student';
 
 @Component({
   selector: 'app-home',
@@ -9,15 +10,14 @@ import { STUDENTS } from '../model/students';
 export class HomePage {
 
   //Importamos la constante de estudiantes
-  students = STUDENTS;
-  name: string;
-  image:string;
+  students :Student[]= STUDENTS;
+  student:Student={id:0,name:'',image:'user.png',gitHub:''};
 
   constructor() {}
 
   randomStudent(){
-    const n = Math.floor(Math.random() * 20); //Math.floor quita los decimales
-    this.name = this.students[n];
-    this.image = `../assets/img/foto${n+1}.png`
+    const n = Math.floor(Math.random() * this.students.length); //Math.floor quita los decimales
+    this.student = this.students[n];
+    
   }
 }

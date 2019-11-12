@@ -59,8 +59,8 @@ _____________________________________
 
 
 ionic g class model/empleado
-cr
 
+(reversa)
 () -->.ts a .html
 [] -->.html a .ts
 [()] --> flujo

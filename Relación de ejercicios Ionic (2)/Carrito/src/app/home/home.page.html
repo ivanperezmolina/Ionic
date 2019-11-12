@@ -19,9 +19,11 @@
         <h2>Nombre: {{e.item}}</h2>
         <h3>Precio Unidad: {{e.price}}</h3>
         <p>Cantidad: {{e.quantity}}</p>
-        <h3>Subtotal: {{(e.price)*(e.quantity)}} €</h3>
+        <h3>Subtotal: {{e.price*e.quantity}}€</h3>
         </ion-label>
       </ion-item>
     </ion-list>
+
+    <h3>Total: {{total}}€</h3>
   </div>
 </ion-content>

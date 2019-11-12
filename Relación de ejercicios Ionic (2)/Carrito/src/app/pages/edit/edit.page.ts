@@ -17,15 +17,16 @@ export class EditPage implements OnInit {
   };
 
   constructor(private carritoService:CarritoService,
-              private activatedRoute:ActivatedRoute) { }
+              private activatedRoute:ActivatedRoute,
+              private router:Router) { }
 
   ngOnInit() {
   }
 
   saveElemento(){
-    this.carritoService.addElemento(this.carrito).then(
-      ()=>this.router.navigateByUrl('/')
-    );
+    this.carritoService.addElemento(this.carrito)
+    this.router.navigateByUrl('/')
+    
   }
 
 }

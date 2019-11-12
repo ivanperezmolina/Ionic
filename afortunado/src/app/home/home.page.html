@@ -14,7 +14,10 @@
       <ion-icon name="color-wand"></ion-icon>
     </ion-button>
 
-    <img *ngIf="image" [src]="image">
-    <h1 text-center> {{ name }}</h1>
+    <img [src]="'../assets/img/'+student.image">
+    <h1 text-center> {{ student.name }}</h1>
+    
+    <h1 id="git" text-center><a [href]="student.gitHub" target="_blank"><ion-icon name="logo-github"></ion-icon></a></h1>
+
   </div>
 </ion-content>
