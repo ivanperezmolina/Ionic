@@ -10,22 +10,33 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditPage implements OnInit {
 
-  carrito: Carrito={
-    item:"",
-    price:0,
-    quantity:0
-  };
+
+  carrito:Carrito={
+  item:'',
+  price:0,
+  quantity:0,
+  subtotal:0  
+};
+
+
+
 
   constructor(private carritoService:CarritoService,
               private activatedRoute:ActivatedRoute,
               private router:Router) { }
 
   ngOnInit() {
+   
+  }
+
+  addItem(){
+    this.carritoService.addElemento(this.carrito);
+    //this.total= this.carritoService.getCart();
   }
 
   saveElemento(){
-    this.carritoService.addElemento(this.carrito)
-    this.router.navigateByUrl('/')
+    this.carritoService.addElemento(this.carrito);
+    this.router.navigateByUrl('/');
     
   }
 

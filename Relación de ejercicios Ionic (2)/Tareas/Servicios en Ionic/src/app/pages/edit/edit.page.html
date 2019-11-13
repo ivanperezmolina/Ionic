@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/home"></ion-back-button>
+        </ion-buttons>
+    <ion-title>{{accion}} Tarea</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Título</ion-label>
+      <ion-input clearInput [(ngModel)]="task.title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Descripción</ion-label>
+        <ion-input clearInput [(ngModel)]="task.description"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Categoría</ion-label>
+        <ion-select placeholder="Seleccione uno" [(ngModel)]="task.categoria">
+          <ion-select-option value="personal">Personal</ion-select-option>
+          <ion-select-option value="trabajo">Trabajo</ion-select-option>
+          <ion-select-option value="estudios">Estudios</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <hr>
+      <ion-button expand="full" (click)="saveTask()">
+        Guardar
+      </ion-button>
+      
+  </div>
+</ion-content>

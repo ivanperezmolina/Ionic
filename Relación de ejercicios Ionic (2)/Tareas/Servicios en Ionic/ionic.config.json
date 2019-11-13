@@ -1,0 +1,7 @@
+{
+  "name": "plantilla7",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

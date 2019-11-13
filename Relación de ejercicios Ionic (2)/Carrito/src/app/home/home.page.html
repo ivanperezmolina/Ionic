@@ -14,7 +14,8 @@
 <ion-content>
   <div class="ion-padding">
     <ion-list lines="full">
-      <ion-item *ngFor='let e of carrito'>
+      <!--
+      <ion-item *ngFor="let e of (carritoService.items | async)">
         <ion-label>
         <h2>Nombre: {{e.item}}</h2>
         <h3>Precio Unidad: {{e.price}}</h3>
@@ -22,8 +23,12 @@
         <h3>Subtotal: {{e.price*e.quantity}}€</h3>
         </ion-label>
       </ion-item>
+    -->
     </ion-list>
+
+    {{carritoService.items | json}}
 
     <h3>Total: {{total}}€</h3>
   </div>
+  <ion-button (click)="refrescar()">Refrescar</ion-button>
 </ion-content>

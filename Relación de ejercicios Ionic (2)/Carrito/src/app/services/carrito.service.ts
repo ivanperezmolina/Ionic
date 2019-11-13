@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Carrito } from '../model/carrito';
 import { Observable } from 'rxjs';
-//import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';//1.
 
 
 
@@ -12,53 +12,53 @@ import { Observable } from 'rxjs';
 export class CarritoService {
 
   //Array de elementos del carrito
-  carrito: Carrito[] = [];
+  public items:Carrito[]=[];
+
+  total:number=0; 
 
 
-  constructor() { //inyectar el hhtp
-    this.carrito = [
-      {
-        item: 'Teclado Logitech',
-        price: 16.40,
-        quantity: 2
-      },
-      {
-        item: 'Ratón Tacens',
-        price: 10.25,
-        quantity: 3
-      },
-      {
-        item: 'Portátil MSI',
-        price: 999,
-        quantity: 1
-      },
-      {
-        item: 'Tablet Lenovo',
-        price: 139,
-        quantity: 2
-      },
-    ];
-
-
-    //this.getJson('carrito.json).subscribe(
-    //  data=> this.carrito = data
-    // );
+  constructor(private http:HttpClient) { //2.inyectar el hhtp
+    this.getCart().subscribe(
+      data=> {
+        console.log(data);
+        this.items = data;
+      }
+     );
   }
 
-  //Para coger del .json 
-
-  //getJson (file:string):Observable<Carrito[]>{
-   // return this.http.get<Carrito[]>('../model/'+file);
-  //}
+  //3.Para coger del .json 
+  getJson (file:string):Observable<Carrito[]>{
+    return this.http.get<Carrito[]>('assets/'+file);
+  }
 
 
   //getter para devolver elementos del carrito
-  getCarrito(): Carrito[] {
-    return this.carrito;
+  //getCarrito(): Carrito[] {
+   // return this.items;
+  //}
+
+
+  //Para ahhorar codigo/*
+  getCart():Observable<Carrito[]>{
+    return this.getJson('cart.json');
   }
 
+  getTotal(): number{
+    if(this.items.length==0){
+      return 0
+    }else{
+      this.items.forEach(i=>i.subtotal = i.price*i.quantity);
+      this.items.forEach(i=>this.total+=i.subtotal);
+        return this.total;
+
+        
+    }
+  }
+  
   addElemento(e:Carrito){
-    const elementosAGuardar = {item:e.item, price:e.price,quantity:e.quantity}
-    this.carrito.push(elementosAGuardar);
+    const elementosAGuardar = {item:e.item, price:e.price,quantity:e.quantity,subtotal:e.subtotal}
+    this.items.push(elementosAGuardar);
+    //this.http.post(elementosAGuardar);
+    
   }
 }

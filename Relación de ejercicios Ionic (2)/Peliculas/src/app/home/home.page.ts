@@ -38,7 +38,7 @@ export class HomePage {
     async presentAlertConfirm(title:string) {
       const alert = await this.alertController.create({
         header: 'Confirmación de borrado',
-        message: '¿Esta seguro de que quiere borra la tarea " <strong>'+title+'"</strong>?',
+        message: '¿Esta seguro de que quiere borra la pelicula " <strong>'+title+'"</strong>?',
         buttons: [
           {
             text: 'Cancelar',

@@ -13,25 +13,39 @@ import { AlertController } from '@ionic/angular';
 })
 export class HomePage {
   //Rellenar con las tareas que me de el servicio
-  carrito:Carrito[]=[];
+ // items:Carrito[]=[];
   subtotal:number=0;
   total:number=0;
  
   //Hay que inyectar el servicio al constructor (aquí)
-  constructor(private carritoService:CarritoService,
+  constructor(private carritoService: CarritoService,
               private router:Router,
               public alertController:AlertController) {}
 
   //Cuando se inicie la página, se carguen los datos
-  ngOnInit(){
-    this.carrito = this.carritoService.getCarrito();
-    this.carrito.forEach(elemento=> {
+  /*
+  ionViewWillEnter(){
+    this.carritoService.getCart().subscribe(
+      data=> {
+        this.items = data;        
+      }
+    )
+      this.items.forEach(elemento=> {
       this.subtotal=elemento.price*elemento.quantity;
       this.total+=this.subtotal;
     })
   }
+  */
   
   vamosAEdit(){
     this.router.navigateByUrl(`/edit`);
+  }
+
+  refrescar(){
+    this.carritoService.getCart().subscribe(
+      data=> {
+        //this.items = data;        
+      }
+    )
   }
 }
