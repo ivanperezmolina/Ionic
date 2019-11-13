@@ -14,6 +14,9 @@ export class HomePage {
   //Rellenar con las peliculas que me de el servicio
   peliculas:Pelicula[]=[];
   image:string;
+  ocultar:boolean = false;  
+  index:number;
+  
 
   //Hay que inyectar el servicio al constructor (aquí)
   constructor(private peliculaService: PeliculaService,
@@ -30,7 +33,7 @@ export class HomePage {
 
     //Llamar al servicio
     deletePelicula(titulo:string){
-      console.log("Delete"+ titulo);
+      console.log("Delete "+ titulo);
       this.peliculaService.deletePelicula(titulo);
       this.peliculas = this.peliculaService.getPeliculas();
     }
@@ -62,11 +65,11 @@ export class HomePage {
     
     //APAREZCA Y DESAPAREZCA INFO
 
-    ocultar1:boolean = false;
     
 
-    accion1(){
-      this.ocultar1 = !this.ocultar1;
+    detalles(title){
+      this.ocultar = !this.ocultar;
+      this.index=this.peliculas.findIndex(p => p.title == title);
     }
 
 

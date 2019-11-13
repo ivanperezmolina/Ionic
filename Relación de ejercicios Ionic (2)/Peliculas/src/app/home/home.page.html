@@ -12,11 +12,11 @@
 
         <ion-card *ngFor='let p of peliculas'>
             
-            <ion-card-header block (click)="accion1(p.title)">
+            <ion-card-header block (click)="detalles(p.title)">
                 <img src="../assets/img/{{p.cover}}" >
-              <ion-card-title>{{p.title}}</ion-card-title>              
+              <ion-card-title >{{p.title}}</ion-card-title>              
             </ion-card-header>            
-            <ion-card-content *ngIf="ocultar1" >
+            <ion-card-content *ngIf="ocultar && (peliculas[index].title == p.title)" >
               <h2>Fecha: {{p.release}}</h2><br>
               <h2>Nota: {{p.score}}</h2><br>
               Sinopsis: {{p.synopsis}}

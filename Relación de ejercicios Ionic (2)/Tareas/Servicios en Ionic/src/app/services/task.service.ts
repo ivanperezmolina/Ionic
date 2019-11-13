@@ -50,7 +50,11 @@ export class TaskService {
           
           const taskToSave = {id: id, title:t.title, description: t.description,categoria:t.categoria}
           //////
+          if(t.title==""){
+            console.log("ERROR:NO HAY TITULO");
+          }else{
           this.tasks.push(taskToSave);
+          }
         }
 
         updateTask(t){
