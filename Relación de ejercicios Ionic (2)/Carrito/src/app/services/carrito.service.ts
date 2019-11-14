@@ -44,12 +44,18 @@ export class CarritoService {
   }
 
   getTotal(): number{
-    if(this.items.length==0){
+        if(this.items.length==0){
       return 0
     }else{
-      this.items.forEach(i=>i.subtotal = i.price*i.quantity);
-      this.items.forEach(i=>this.total+=i.subtotal);
+      this.total=0;
+      this.items.forEach(i=>{
+        i.subtotal = i.price*i.quantity;
+        
+      });
+      
+     this.items.forEach(i=>this.total+=i.subtotal);
         return this.total;
+        
 
         
     }
