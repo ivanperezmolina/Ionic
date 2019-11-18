@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Dados aleatorios...
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    
+      <img class="myphoto" [src]="'../assets/img/'+dados.image">
+    
+
+    <ion-button expand="full" (click)="randomDado()">
+      Tirar dado
+    </ion-button>
+  </div>
+</ion-content>

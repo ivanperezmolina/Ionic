@@ -57,7 +57,7 @@ _____________________________________
 
 ### PRACTICA DE COMPONENTES EN NUESTRA APLICACIÓN
 
-
+MODELO-->
 ionic g class model/empleado
 
 (reversa)
@@ -84,10 +84,14 @@ Referencia: https://github.com/LuisJoseSanchez/ionic-todo-storage
 
 app-outing.module.ts -->es el enrrutamiento, añadir linea para que coja tambien el id en la ruta
 
-crear servicio: ionic g service services/task
+crear servicio: ionic g service services/task <----
 
 task.service.ts 
 
 _____________________________________
 
+IMPORTANTE
+Servicio -->Maneja
+Lógica --> Opera
+Visual -->Muestra
 _____________________________________
